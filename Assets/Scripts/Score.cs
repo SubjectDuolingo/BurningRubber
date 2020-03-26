@@ -33,8 +33,8 @@ public class Score : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         stuntText.enabled = true;
-        timeLeft = 2;
-        stuntText.text = "Ramp jump! +" + score.ToString();
-        scoreText.text = "Score: " + (points += score).ToString();
+        timeLeft = 4;
+        stuntText.text = "Epic jump! + " + score.ToString();
+        scoreText.text = "Points: " + (points += score).ToString();
     }
 }
