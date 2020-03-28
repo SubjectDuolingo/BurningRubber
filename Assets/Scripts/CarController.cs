@@ -59,7 +59,7 @@ public class CarController : MonoBehaviour
     private void GetInputs()
     {
         inputX = Input.GetAxis("Horizontal");
-        inputY = Input.GetAxis("Vertical");
+        inputY = Input.GetAxis("Accelerate");
     }
 
     private void Move()
