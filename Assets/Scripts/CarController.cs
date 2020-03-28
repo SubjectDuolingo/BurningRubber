@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 
 public enum Axel
 {
@@ -35,6 +35,7 @@ public class CarController : MonoBehaviour
     private float inputX, inputY;
 
     private Rigidbody _rb;
+
     
     private void Start()
     {
@@ -58,7 +59,7 @@ public class CarController : MonoBehaviour
     private void GetInputs()
     {
         inputX = Input.GetAxis("Horizontal");
-        inputY = Mathf.Round(Input.GetAxisRaw("Accelerate"));
+        inputY = Input.GetAxis("Vertical");
     }
 
     private void Move()
