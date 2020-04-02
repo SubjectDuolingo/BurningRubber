@@ -36,11 +36,16 @@ public class CarController : MonoBehaviour
 
     private Rigidbody _rb;
 
-    
+    private Vector3 spawnPosition;
+    private Quaternion spawnRotation;
+
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _rb.centerOfMass = _centerOfMass;
+        spawnPosition = gameObject.transform.position;
+        spawnRotation = gameObject.transform.rotation;
     }
 
     
@@ -48,6 +53,7 @@ public class CarController : MonoBehaviour
     {
         AnimateWheels();
         GetInputs();
+        checkReset();
     }
 
     private void LateUpdate()
@@ -66,7 +72,8 @@ public class CarController : MonoBehaviour
     {
         foreach (var wheel in wheels)
         {
-            wheel.collider.motorTorque = inputY * maxAcceleration * 500 * Time.deltaTime;
+            wheel.collider.motorTorque
+                = inputY * maxAcceleration * 500 * Time.deltaTime;
         }
     }
 
@@ -91,6 +98,17 @@ public class CarController : MonoBehaviour
             wheel.collider.GetWorldPose(out _pos, out _rot);
             wheel.model.transform.position = _pos;
             wheel.model.transform.rotation = _rot;
+        }
+    }
+
+    void checkReset()
+    {
+        if (Input.GetButton("Accelerate"))
+        {
+            gameObject.transform.position = spawnPosition;
+            gameObject.transform.rotation = spawnRotation;
+            gameObject.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
+            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         }
     }
 }

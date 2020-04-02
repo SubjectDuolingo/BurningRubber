@@ -20,7 +20,7 @@ public class CarResetter : MonoBehaviour
 
     void checkReset()
     {
-        if(Input.GetKey(KeyCode.R))
+        if(Input.GetButton("Accelerate"))
         {
             gameObject.transform.position = spawnPosition;
             gameObject.transform.rotation = spawnRotation;
