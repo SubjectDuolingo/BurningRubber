@@ -9,12 +9,12 @@ public class StuntSystem : MonoBehaviour
 
     public List<WheelGroundChecker> wheelScripts;
 
-    public Rigidbody carRigidBody;
     public bool isGrounded;
     public bool barrelRollPerformed = false;
 
-    public float minimumAirTime = 1f;
+    public float minimumAirTime = 0.5f;
     private float airTimer = 0f;
+    public bool airTimePerformed = false;
 
     private void Update()
     {
@@ -24,7 +24,7 @@ public class StuntSystem : MonoBehaviour
 
     private void CheckForStunts()
     {
-        if (transform.localRotation.z > 0.8f)
+        if (transform.localRotation.z > 0.65f)
         {
             barrelRollPerformed = true;
         }
@@ -32,15 +32,21 @@ public class StuntSystem : MonoBehaviour
         if (!isGrounded)
         {
             airTimer += Time.deltaTime;
-            if (airTimer > minimumAirTime)
+            if (airTimer >= minimumAirTime && barrelRollPerformed == false)
             {
-                airTimer = 0;
-                stunt_airTime.Raise();
+                airTimePerformed = true;
             }
         }
         else
         {
             airTimer = 0f;
+        }
+
+        if(airTimePerformed && isGrounded)
+        {
+            stunt_airTime.Raise();
+            airTimer = 0f;
+            airTimePerformed = false;
         }
 
         if (barrelRollPerformed && isGrounded)

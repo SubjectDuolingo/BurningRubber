@@ -20,6 +20,5 @@ public class WheelGroundChecker : MonoBehaviour
         {
             WheelOnGround = false;
         }
-        Debug.Log(WheelOnGround);
     }
 }
