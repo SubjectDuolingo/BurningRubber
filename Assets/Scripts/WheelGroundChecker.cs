@@ -1,24 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WheelGroundChecker : MonoBehaviour
 {
     public bool WheelOnGround;
+    private WheelCollider WheelCollider;
 
-    private void OnCollisionStay(Collision collision)
+    private void Start()
     {
-        if(collision.gameObject.GetComponent<Floor>() != null)
-        {
-            WheelOnGround = true;
-        }
+        WheelCollider = GetComponent<WheelCollider>();
     }
 
-    private void OnCollisionExit(Collision collision)
-    { 
-        if(collision.gameObject.GetComponent<Floor>() != null)
+    private void Update()
+    {
+        if (WheelCollider.GetGroundHit(out WheelHit wheel))
+        {
+            WheelOnGround = true;           
+        }
+        else
         {
             WheelOnGround = false;
         }
+        Debug.Log(WheelOnGround);
     }
 }
