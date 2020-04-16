@@ -49477,7 +49477,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeLeft: 300
-  text: {fileID: 2097381162}
+  gameTimer: {fileID: 0}
+  countdownTimer: {fileID: 0}
+  player: {fileID: 0}
 --- !u!4 &1383271665
 Transform:
   m_ObjectHideFlags: 0
