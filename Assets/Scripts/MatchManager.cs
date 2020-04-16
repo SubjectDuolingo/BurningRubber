@@ -8,25 +8,29 @@ public class MatchManager : MonoBehaviour
     public Text gameTimer;
     public Text countdownTimer;
     public GameObject player;
-
-    private void Start()
-    {
-        player.GetComponent<CarController>().enabled = false;
-    }
+    public GameObject carSpawnerManager;
 
     void Update()
     {
-        InitialCountdown();
-        if (initialCountdown < 0)
+        if (player == null)
         {
-            countdownTimer.text = "Start!";
-            player.GetComponent<CarController>().enabled = true;
-            if (initialCountdown < -3)
+            player = carSpawnerManager.GetComponent<CarSpawner>().newCar;
+            player.GetComponent<CarController>().enabled = false;
+        }
+        else
+        {
+            InitialCountdown();
+            if (initialCountdown < 0)
             {
-                countdownTimer.text = "";
+                countdownTimer.text = "Start!";
+                player.GetComponent<CarController>().enabled = true;
+                if (initialCountdown < -3)
+                {
+                    countdownTimer.text = "";
+                }
+                GameTimer();
             }
-            GameTimer();
-        }        
+        }
     }
 
     void InitialCountdown() 

@@ -49477,9 +49477,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeLeft: 300
-  gameTimer: {fileID: 0}
-  countdownTimer: {fileID: 0}
+  gameTimer: {fileID: 2097381162}
+  countdownTimer: {fileID: 2097381162}
   player: {fileID: 0}
+  carSpawnerManager: {fileID: 2072546499}
 --- !u!4 &1383271665
 Transform:
   m_ObjectHideFlags: 0
