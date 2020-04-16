@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5889,10 +5889,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carObject: {fileID: 11400000, guid: 6b84d85e2d7d619439f25e19af2ca8e9, type: 2}
   carList:
-  - {fileID: -927199367670048503, guid: 0374f848e1533c3449903e3d17bd28d5, type: 3}
-  - {fileID: -927199367670048503, guid: a7dd66e8f968345489c5491de253c5fa, type: 3}
-  - {fileID: -927199367670048503, guid: 9ec9b1236072bc641843488e64856e97, type: 3}
-  - {fileID: -927199367670048503, guid: a7dd66e8f968345489c5491de253c5fa, type: 3}
+  - {fileID: 2287807333771127212, guid: 0f011e900dc5cc340aa92f6f87e2018a, type: 3}
+  - {fileID: 2287807333771127212, guid: b0481b881ce1c0a42ada5704048a56dd, type: 3}
+  - {fileID: 2287807333771127212, guid: 1616546f9d28b4f4d94100b1708e5a59, type: 3}
+  - {fileID: 2287807333771127212, guid: cd340ab5fd824ae4793a017957f67565, type: 3}
   selectedCar: 0
   totalCars: 0
   left: {fileID: 648749545}

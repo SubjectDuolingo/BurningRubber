@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CarSelector : MonoBehaviour
 {
@@ -65,5 +66,6 @@ public class CarSelector : MonoBehaviour
     public void SelectCarButtonClicked()
     {
         carObject.SelectNewCar(carList[selectedCar]);
+        SceneManager.LoadScene(1);
     }
 }

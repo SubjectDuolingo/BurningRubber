@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec27583ff8bf434798859458eea1299, type: 3}
   m_Name: SelectedCar
   m_EditorClassIdentifier: 
-  selectedCar: {fileID: -927199367670048503, guid: c930e285a88008a4887000e7ca77b511,
+  selectedCar: {fileID: 2287807333771127212, guid: 0f011e900dc5cc340aa92f6f87e2018a,
     type: 3}

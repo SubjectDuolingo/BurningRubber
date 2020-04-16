@@ -11,9 +11,4 @@ public class CarInfoSO : ScriptableObject
     {
         selectedCar = car;
     }
-
-    public GameObject GetSelectedCar()
-    {
-        return selectedCar;
-    }
 }
