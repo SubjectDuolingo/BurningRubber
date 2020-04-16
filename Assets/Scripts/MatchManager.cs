@@ -16,7 +16,8 @@ public class MatchManager : MonoBehaviour
         {
             player = carSpawnerManager.GetComponent<CarSpawner>().newCar;
             player.GetComponent<CarController>().enabled = false;
-        }
+
+        }        
         else
         {
             InitialCountdown();
