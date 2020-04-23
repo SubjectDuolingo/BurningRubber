@@ -7,10 +7,14 @@ public class StuntSystem : MonoBehaviour
     public GameEventSO stunt_barrelRoll;
     public GameEventSO stunt_airTime;
     public GameEventSO stunt_binHit;
+    public GameEventSO stunt_fenceHit;
+    public GameEventSO stunt_Snowman;
 
     public List<WheelGroundChecker> wheelScripts;
 
     public bool binHit = false;
+    public bool fenceHit = false;
+    public bool snowmanHit = false;
 
     public bool isGrounded;
     public bool barrelRollPerformed = false;
@@ -32,6 +36,20 @@ public class StuntSystem : MonoBehaviour
             if(collision.gameObject.GetComponent<GarbageBin>().isHit == false)
             {
                 binHit = true;
+            }
+        }
+        else if(collision.gameObject.GetComponent<Fence>() != null)
+        {
+            if(collision.gameObject.GetComponent<Fence>().isHit == false)
+            {
+                fenceHit = true;
+            }
+        }
+        else if (collision.gameObject.GetComponent<Snowman>() != null)
+        {
+            if (collision.gameObject.GetComponent<Snowman>().isHit == false)
+            {
+                snowmanHit = true;
             }
         }
     }
@@ -73,6 +91,18 @@ public class StuntSystem : MonoBehaviour
         {
             stunt_binHit.Raise();
             binHit = false;
+        }
+
+        if (fenceHit)
+        {
+            stunt_fenceHit.Raise();
+            fenceHit = false;
+        }
+
+        if (snowmanHit)
+        {
+            stunt_Snowman.Raise();
+            snowmanHit = false;
         }
     }
 

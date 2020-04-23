@@ -518,12 +518,16 @@ MonoBehaviour:
   stunt_barrelRoll: {fileID: 11400000, guid: aa56826af272ceb4896f00c40b2b7fb3, type: 2}
   stunt_airTime: {fileID: 11400000, guid: 00db4befcf284714782f7e490101f9a8, type: 2}
   stunt_binHit: {fileID: 11400000, guid: c4d51b720d32f2f4bbfeeb6422e8e7dd, type: 2}
+  stunt_fenceHit: {fileID: 11400000, guid: b676b25e6a4d3b74c8e6c0bf3e833da2, type: 2}
+  stunt_Snowman: {fileID: 11400000, guid: d905c5fd2accb494d8c636ae1430988a, type: 2}
   wheelScripts:
   - {fileID: 5993295679173122371}
   - {fileID: 5993295679462290957}
   - {fileID: 5993295680606296843}
   - {fileID: 5993295679001663099}
   binHit: 0
+  fenceHit: 0
+  snowmanHit: 0
   isGrounded: 0
   barrelRollPerformed: 0
   minimumAirTime: 0.5
