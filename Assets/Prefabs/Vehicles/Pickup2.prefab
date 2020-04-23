@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 2287807333771127213}
   - component: {fileID: 5993295680006957604}
   m_Layer: 0
-  m_Name: Car 4
+  m_Name: Pickup2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -517,11 +517,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stunt_barrelRoll: {fileID: 11400000, guid: aa56826af272ceb4896f00c40b2b7fb3, type: 2}
   stunt_airTime: {fileID: 11400000, guid: 00db4befcf284714782f7e490101f9a8, type: 2}
+  stunt_binHit: {fileID: 11400000, guid: c4d51b720d32f2f4bbfeeb6422e8e7dd, type: 2}
   wheelScripts:
   - {fileID: 5993295679173122371}
   - {fileID: 5993295679462290957}
   - {fileID: 5993295680606296843}
   - {fileID: 5993295679001663099}
+  binHit: 0
   isGrounded: 0
   barrelRollPerformed: 0
   minimumAirTime: 0.5

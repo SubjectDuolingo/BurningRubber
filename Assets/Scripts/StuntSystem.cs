@@ -6,8 +6,11 @@ public class StuntSystem : MonoBehaviour
 {
     public GameEventSO stunt_barrelRoll;
     public GameEventSO stunt_airTime;
+    public GameEventSO stunt_binHit;
 
     public List<WheelGroundChecker> wheelScripts;
+
+    public bool binHit = false;
 
     public bool isGrounded;
     public bool barrelRollPerformed = false;
@@ -20,6 +23,17 @@ public class StuntSystem : MonoBehaviour
     {
         isGrounded = CheckAllWheelsGrounded();
         CheckForStunts();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.GetComponent<GarbageBin>() != null)
+        {
+            if(collision.gameObject.GetComponent<GarbageBin>().isHit == false)
+            {
+                binHit = true;
+            }
+        }
     }
 
     private void CheckForStunts()
@@ -53,6 +67,12 @@ public class StuntSystem : MonoBehaviour
         {
             stunt_barrelRoll.Raise();
             barrelRollPerformed = false;
+        }
+
+        if(binHit)
+        {
+            stunt_binHit.Raise();
+            binHit = false;
         }
     }
 

@@ -39,7 +39,6 @@ public class CarController : MonoBehaviour
     private Vector3 spawnPosition;
     private Quaternion spawnRotation;
 
-
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();

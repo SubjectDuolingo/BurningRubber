@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MatchManager : MonoBehaviour
 {
@@ -9,6 +10,17 @@ public class MatchManager : MonoBehaviour
     public Text countdownTimer;
     public GameObject player;
     public GameObject carSpawnerManager;
+    public AudioSource gameOverAudio;
+    public AudioSource startAudio;
+    public GameObject mainMenuButton;
+
+    void Start()
+    {
+        if (startAudio.isPlaying == false)
+        {
+            startAudio.Play(120000);
+        }
+    }
 
     void Update()
     {
@@ -17,15 +29,15 @@ public class MatchManager : MonoBehaviour
             player = carSpawnerManager.GetComponent<CarSpawner>().newCar;
             player.GetComponent<CarController>().enabled = false;
 
-        }        
+        }  
         else
         {
             InitialCountdown();
-            if (initialCountdown < 0)
+            if (initialCountdown < 1)
             {
                 countdownTimer.text = "Start!";
                 player.GetComponent<CarController>().enabled = true;
-                if (initialCountdown < -3)
+                if (initialCountdown < 0)
                 {
                     countdownTimer.text = "";
                 }
@@ -47,13 +59,24 @@ public class MatchManager : MonoBehaviour
         int seconds = Mathf.FloorToInt(timeLeft % 60F);
         int milliseconds = Mathf.FloorToInt((timeLeft * 100F) % 100F);
         gameTimer.text = minutes.ToString("00") + ":" + seconds.ToString("00") + ":" + milliseconds.ToString("00");
+        if(timeLeft <= 1.2f)
+        {
+            if (gameOverAudio.isPlaying == false)
+            {
+                gameOverAudio.Play();
+            }
+        }
         if (timeLeft < 0)
         {
             timeLeft = 0f;
-            countdownTimer.text = "Time's up!";
+            countdownTimer.text = "Game Over!";
             player.GetComponent<CarController>().enabled = false;
+            mainMenuButton.SetActive(true);
         }
     }
 
-
+    public void mainMenuButtonClicked()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

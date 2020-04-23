@@ -53,7 +53,7 @@ public class CarSelector : MonoBehaviour
         left.interactable = false;
         right.interactable = false;
         StartCoroutine(RotateMe(Vector3.up * 90, 1.4f));
-        if (selectedCar > 1)
+        if (selectedCar > 0)
         {
             selectedCar--;
         }
