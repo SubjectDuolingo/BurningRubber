@@ -13,6 +13,8 @@ public class MatchManager : MonoBehaviour
     public AudioSource gameOverAudio;
     public AudioSource startAudio;
     public GameObject mainMenuButton;
+    private AudioSource[] allAudio;
+    private int check = 0;
 
     void Start()
     {
@@ -20,6 +22,7 @@ public class MatchManager : MonoBehaviour
         {
             startAudio.Play(120000);
         }
+        allAudio = FindObjectsOfType<AudioSource>();
     }
 
     void Update()
@@ -59,15 +62,20 @@ public class MatchManager : MonoBehaviour
         int seconds = Mathf.FloorToInt(timeLeft % 60F);
         int milliseconds = Mathf.FloorToInt((timeLeft * 100F) % 100F);
         gameTimer.text = minutes.ToString("00") + ":" + seconds.ToString("00") + ":" + milliseconds.ToString("00");
-        if(timeLeft <= 1.2f)
-        {
-            if (gameOverAudio.isPlaying == false)
-            {
-                gameOverAudio.Play();
-            }
-        }
         if (timeLeft < 0)
         {
+            for (int i = check; i < 1; i++)
+            {
+                foreach (AudioSource audio in allAudio)
+                {
+                    audio.Stop();
+                }
+                if (gameOverAudio.isPlaying == false)
+                {
+                    gameOverAudio.Play();
+                }
+                check = 1;
+            }
             timeLeft = 0f;
             countdownTimer.text = "Game Over!";
             player.GetComponent<CarController>().enabled = false;
